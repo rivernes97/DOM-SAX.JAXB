@@ -6,19 +6,23 @@
 package dom;
 
 import java.io.File;
-import java.util.jar.Attributes;
+
+import org.xml.sax.Attributes;
+import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
-import jdk.internal.org.xml.sax.SAXException;
+import org.xml.sax.SAXException;
 
 import org.xml.sax.helpers.DefaultHandler;
 
 
 /**
  *
- * @author xp
+ * @author Ernesto De Vicente
  */
 public class SAX {
-    
+       SAXParser parser;
+       ManejadorSAX sh;
+       File fXML;
     
     
     public int abrir_XML_SAX(File fichero)
@@ -33,7 +37,7 @@ public class SAX {
             sh = new ManejadorSAX();
             
             
-            ficheroXML = fichero ;
+            fXML = fichero ;
             
             return 0 ;
             
@@ -53,7 +57,7 @@ public class SAX {
             return -1;
         }
         
-        
+        }
      class ManejadorSAX extends DefaultHandler{
          
         int ultimoelement;
@@ -64,7 +68,7 @@ public class SAX {
             ultimoelement=0;
         }
          
-         @Override public void  startElement(String uri , String localName , String qName , Attributes atts)throws SAXException{
+        @Override public void  startElement(String uri , String localName , String qName , Attributes atts)throws SAXException{
              if(qName.equals("Libro")){
                  cadena_resultado = cadena_resultado +"\nPublicado en :"
                          + atts.getValue(atts.getQName(0))+ "\n";
@@ -89,7 +93,7 @@ public class SAX {
          }
          
          
-       @Override public void andElement(String uti,String localName,String qName)
+        public void andElement(String uti,String localName,String qName)
                throws SAXException{
            if(qName.equals("Libro")){
                System.out.println("He encontrado el final de un elemento.");
@@ -99,7 +103,7 @@ public class SAX {
        }
          
          
-         @Override public void characters(char[]ch , int start , int lenght)throws
+        @Override public void characters(char[]ch , int start , int lenght)throws
                     SAXException{
              
                     if(ultimoelement ==2){
@@ -130,27 +134,17 @@ public class SAX {
         
         
         
-    }
     
-    public String recorrerSAX (File fXML,ManejadorSAX sh , SAXParser parser){
-        
-        try {
-            parser.parser(fXML,sh);
-            return sh.cadena_resultado;
-            
-            
-            
-            
-            
-            
-        } catch (SAXException e) {
-            e.printStackTrace();return"Error al parsear con SAX";
-            
-        }catch (Exception e) {
-            e.printStackTrace();return"Error al parsear con SAX";
-            
-        }
-       
+    
+    public String recorrerSAX (){
+    try{
+    parser.parse(fXML, sh);
+    return sh.cadena_resultado;
+    } catch (Exception e) {
+e.printStackTrace(); return "Error al parsear con SAX";
+}
+}
+
             
                 
         
@@ -161,7 +155,7 @@ public class SAX {
     
     
     
-}
+
     
     
     

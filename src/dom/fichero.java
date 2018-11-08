@@ -5,8 +5,10 @@
  */
 package dom;
 
+import generated.Libros;
 import java.io.File;
 import javax.swing.JFileChooser;
+import javax.swing.JFrame;
 
 import javax.xml.parsers.DocumentBuilder;
 
@@ -20,16 +22,18 @@ import org.w3c.dom.Node;
  * @author xp
  */
 public class fichero extends javax.swing.JFrame {
-
+    Libros misLibros;
    
      Document doc = null;
     DOM getDom = new DOM();
+    SAX getSax = new SAX();
+     JAXB getJaxb = new JAXB();
     
     
     
     
     
-    
+   
                  
                  
                  
@@ -171,6 +175,28 @@ public class fichero extends javax.swing.JFrame {
     private void initComponents() {
 
         jFileChooser1 = new javax.swing.JFileChooser();
+        jFrame1 = new javax.swing.JFrame();
+        abrirSAX = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        consola1 = new javax.swing.JTextArea();
+        mostrarSAX = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        jMenuBar2 = new javax.swing.JMenuBar();
+        jMenu2 = new javax.swing.JMenu();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
+        jFrame2 = new javax.swing.JFrame();
+        abrirSAX1 = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        consola2 = new javax.swing.JTextArea();
+        mostrarSAX1 = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        jMenuBar3 = new javax.swing.JMenuBar();
+        jMenu3 = new javax.swing.JMenu();
+        jMenuItem7 = new javax.swing.JMenuItem();
+        jMenuItem8 = new javax.swing.JMenuItem();
+        jMenuItem9 = new javax.swing.JMenuItem();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         Tautor = new javax.swing.JTextField();
@@ -183,8 +209,175 @@ public class fichero extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         consola = new javax.swing.JTextArea();
         jButton5 = new javax.swing.JButton();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
 
         jFileChooser1.setDialogType(javax.swing.JFileChooser.SAVE_DIALOG);
+
+        jFrame1.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        abrirSAX.setText("ABRIR SAX");
+        abrirSAX.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                abrirSAXMouseClicked(evt);
+            }
+        });
+        abrirSAX.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                abrirSAXActionPerformed(evt);
+            }
+        });
+
+        consola1.setColumns(20);
+        consola1.setRows(5);
+        jScrollPane2.setViewportView(consola1);
+
+        mostrarSAX.setText("Mostrar ");
+        mostrarSAX.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mostrarSAXMouseClicked(evt);
+            }
+        });
+        mostrarSAX.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mostrarSAXActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("SAX");
+
+        jMenu2.setText("Opciones");
+
+        jMenuItem4.setText("DOM");
+        jMenu2.add(jMenuItem4);
+
+        jMenuItem5.setText("SAX");
+        jMenu2.add(jMenuItem5);
+
+        jMenuItem6.setText("JAXB");
+        jMenu2.add(jMenuItem6);
+
+        jMenuBar2.add(jMenu2);
+
+        jFrame1.setJMenuBar(jMenuBar2);
+
+        javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
+        jFrame1.getContentPane().setLayout(jFrame1Layout);
+        jFrame1Layout.setHorizontalGroup(
+            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jFrame1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 582, Short.MAX_VALUE)
+                    .addGroup(jFrame1Layout.createSequentialGroup()
+                        .addComponent(abrirSAX, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(mostrarSAX, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+            .addGroup(jFrame1Layout.createSequentialGroup()
+                .addGap(219, 219, 219)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jFrame1Layout.setVerticalGroup(
+            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jFrame1Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addGroup(jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(abrirSAX, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(mostrarSAX, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(17, Short.MAX_VALUE))
+        );
+
+        jFrame2.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        abrirSAX1.setText("ABRIR JAXB");
+        abrirSAX1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                abrirSAX1MouseClicked(evt);
+            }
+        });
+        abrirSAX1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                abrirSAX1ActionPerformed(evt);
+            }
+        });
+
+        consola2.setColumns(20);
+        consola2.setRows(5);
+        jScrollPane3.setViewportView(consola2);
+
+        mostrarSAX1.setText("Mostrar ");
+        mostrarSAX1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mostrarSAX1MouseClicked(evt);
+            }
+        });
+        mostrarSAX1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mostrarSAX1ActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("JAXB");
+
+        jMenu3.setText("Opciones");
+
+        jMenuItem7.setText("DOM");
+        jMenu3.add(jMenuItem7);
+
+        jMenuItem8.setText("SAX");
+        jMenu3.add(jMenuItem8);
+
+        jMenuItem9.setText("JAXB");
+        jMenu3.add(jMenuItem9);
+
+        jMenuBar3.add(jMenu3);
+
+        jFrame2.setJMenuBar(jMenuBar3);
+
+        javax.swing.GroupLayout jFrame2Layout = new javax.swing.GroupLayout(jFrame2.getContentPane());
+        jFrame2.getContentPane().setLayout(jFrame2Layout);
+        jFrame2Layout.setHorizontalGroup(
+            jFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jFrame2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 582, Short.MAX_VALUE)
+                    .addGroup(jFrame2Layout.createSequentialGroup()
+                        .addComponent(abrirSAX1, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(mostrarSAX1, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+            .addGroup(jFrame2Layout.createSequentialGroup()
+                .addGap(219, 219, 219)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jFrame2Layout.setVerticalGroup(
+            jFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jFrame2Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addGroup(jFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(abrirSAX1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(mostrarSAX1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(17, Short.MAX_VALUE))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -245,6 +438,31 @@ public class fichero extends javax.swing.JFrame {
             }
         });
 
+        jMenu1.setText("Opciones");
+
+        jMenuItem1.setText("DOM");
+        jMenu1.add(jMenuItem1);
+
+        jMenuItem2.setText("SAX");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem2);
+
+        jMenuItem3.setText("JAXB");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem3);
+
+        jMenuBar1.add(jMenu1);
+
+        setJMenuBar(jMenuBar1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -279,13 +497,13 @@ public class fichero extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -317,14 +535,6 @@ public class fichero extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton4MouseClicked
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-       getDom.annadirDom(Ttitulo.getText(), Tautor.getText(), Tlibro.getText());
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void TtituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TtituloActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TtituloActionPerformed
-
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         
         File fichero = dialogoSeleccionado();
@@ -345,14 +555,75 @@ public class fichero extends javax.swing.JFrame {
         consola.setText(getDom.recorrerDOMyMostrar());
     }//GEN-LAST:event_jButton5ActionPerformed
 
+    private void TtituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TtituloActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TtituloActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        getDom.annadirDom(Ttitulo.getText(), Tautor.getText(), Tlibro.getText());
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         File fichero = dialogoSeleccionado1();
-        
-        
-        
+
         getDom.guardarDOMcomoFILE();
-      
+
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void mostrarSAXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarSAXActionPerformed
+      consola1.setText(getSax.recorrerSAX());
+    }//GEN-LAST:event_mostrarSAXActionPerformed
+
+    private void mostrarSAXMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mostrarSAXMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mostrarSAXMouseClicked
+
+    private void abrirSAXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_abrirSAXActionPerformed
+     File fichero = dialogoSeleccionado();
+         getSax.abrir_XML_SAX(fichero);
+         
+         
+    }//GEN-LAST:event_abrirSAXActionPerformed
+
+    private void abrirSAXMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_abrirSAXMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_abrirSAXMouseClicked
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+       
+    
+        jFrame1.setVisible(true);
+        jFrame1.setSize(650,460);
+        dispose();
+        
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void abrirSAX1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_abrirSAX1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_abrirSAX1MouseClicked
+
+    private void abrirSAX1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_abrirSAX1ActionPerformed
+            
+        File fichero = dialogoSeleccionado();
+        
+         getJaxb.abrir_XML_JAXB(fichero);
+         
+    }//GEN-LAST:event_abrirSAX1ActionPerformed
+
+    private void mostrarSAX1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mostrarSAX1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mostrarSAX1MouseClicked
+
+    private void mostrarSAX1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarSAX1ActionPerformed
+     consola2.setText( getJaxb.recorrerJAXByMostrar());
+    }//GEN-LAST:event_mostrarSAX1ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        jFrame2.setVisible(true);
+        jFrame2.setSize(650,460);
+        dispose();
+        
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -393,15 +664,42 @@ public class fichero extends javax.swing.JFrame {
     private javax.swing.JTextField Tautor;
     private javax.swing.JTextField Tlibro;
     private javax.swing.JTextField Ttitulo;
+    private javax.swing.JButton abrirSAX;
+    private javax.swing.JButton abrirSAX1;
     private javax.swing.JTextArea consola;
+    private javax.swing.JTextArea consola1;
+    private javax.swing.JTextArea consola2;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JFileChooser jFileChooser1;
+    private javax.swing.JFrame jFrame1;
+    private javax.swing.JFrame jFrame2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JMenuBar jMenuBar3;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JButton mostrarSAX;
+    private javax.swing.JButton mostrarSAX1;
     // End of variables declaration//GEN-END:variables
 }

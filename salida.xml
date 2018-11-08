@@ -12,8 +12,4 @@
         <Titulo>El nombre de la rosa</Titulo>
         <Autor>Uberto Eco</Autor>
     </Libro>
-    <Libro publicado_en="ernes">
-        <titulo>ernes</titulo>
-        <Autor>ernes</Autor>
-    </Libro>
 </Libros>
